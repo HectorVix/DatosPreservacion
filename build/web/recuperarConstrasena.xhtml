@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Recuperar Contraseña</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <p:graphicImage value="images/logo.jpg" library="yourapp"  />
+            <h:form>
+
+
+                <p:panel header="Recuperar Contrasña">
+                    <p:messages>  
+
+                    </p:messages>
+                    <h:outputText
+                            value="Ingrese el correo  electronico registrado y se te enviaria tu nueva contraseña." />
+                    <h:panelGrid id="grid" columns="4" cellpadding="5">
+                        
+
+                        <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
+                        <p:inputText id="email" value="#{validationView.email}" validatorMessage="El formato de correo no es valido.">
+                            <f:validateRegex pattern="^[a-zA-Z]+$" />
+                        </p:inputText>
+                        <p:message for="email" />
+                        <h:outputText value="#{validationView.email}" />
+
+
+                    </h:panelGrid>
+
+                    <p:commandButton value="ENVIAR" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"
+                             action="faces/login.xhtml"         />                                    
+                       
+
+
+
+
+
+                </p:panel>
+                
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>

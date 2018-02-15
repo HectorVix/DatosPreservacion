@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Registrarse</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <p:graphicImage value="images/logo.jpg" library="yourapp"  />
+            <h:form>
+
+
+                <p:panel header="Registrarse">
+                    <p:messages>  
+
+                    </p:messages>
+                    <h:panelGrid>
+                        <h:outputText
+                            value="Rellene el formulario  para registrarse en el CDC.
+                            ¿Ya es usuario? Ingrese a su cuenta." />
+                    </h:panelGrid>
+
+                    <h:panelGrid id="grid" columns="4" cellpadding="5">
+
+
+                        <h:outputLabel for="nombre" value="Nombre:" style="font-weight:bold"/>
+                        <p:inputText id="nombre" value="#{validationView.text}" required="true" label="Nombre"/>
+                        <p:message for="nombre" />
+                        <h:outputText value="#{validationView.text}" />
+
+                        <h:outputLabel for="apellido" value="Apellido:" style="font-weight:bold"/>
+                        <p:inputText id="apellido" value="#{validationView.text}" required="true" label="Apellido"/>
+                        <p:message for="apellido" />
+                        <h:outputText value="#{validationView.text}" />
+
+                        <h:outputLabel for="usuario" value="Nombre de Usuario:" style="font-weight:bold"/>
+                        <p:inputText id="usuario" value="#{validationView.text}" required="true" label="usuario"/>
+                        <p:message for="usuario" />
+                        <h:outputText value="#{validationView.text}" />
+
+                        <h:outputLabel for="sexo" value="Sexo:" style="font-weight:bold"/>
+                        <h:selectOneMenu id="sexo" value=" " style="width:125px">
+                            <f:selectItems value="#{checkboxView.sexo}" var="sex" itemLabel="#{sex}" itemValue="#{sex}"  />
+                        </h:selectOneMenu>
+                        <p:message for="sexo" />
+                        <h:outputText value="  " />
+
+                        <h:outputLabel for="date" value="Fecha" style="font-weight:bold"/>
+                        <p:inputText id="date" value="#{validationView.date}" label="Date">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </p:inputText>
+                        <p:message for="date" />
+                        <h:outputText value="#{validationView.date}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
+                        <p:inputText id="email" value="#{validationView.email}" validatorMessage="El formato de correo no es valido.">
+                            <f:validateRegex pattern="^[a-zA-Z]+$" />
+                        </p:inputText>
+                        <p:message for="email" />
+                        <h:outputText value="#{validationView.email}" />
+
+                        <h:outputLabel for="pwd1" value="Contraseña:" />                                                                                             
+                        <p:password id="pwd1" value="#{validationView.password}" match="pwd2" label="Password 1" required="true" />
+
+                        <p:message for="pwd1" />
+                        <h:outputText value="#{validationView.password}" />
+
+                        <h:outputLabel for="pwd2" value="Repita contraseña: *" />
+                        <p:password id="pwd2" value="#{validationView.password}" label="Password 2" required="true" />
+
+                        <p:message for="pwd2" />
+                        <h:outputText value="#{validationView.password}" />
+
+                    </h:panelGrid>
+
+                    <p:commandButton value="Registrar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"
+                                     action="faces/login.xhtml"         />                                    
+
+
+                     <p:commandButton value="Login"      style="margin-right:10px"
+                                     action="faces/login.xhtml"         />                  
+
+
+
+                </p:panel>
+
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>

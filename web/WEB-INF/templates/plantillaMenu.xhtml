@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"           
+      xmlns:f="http://java.sun.com/jsf/core"   
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--  <h:outputStylesheet name="./css/default.css"/>-->
+        <!--  <h:outputStylesheet name="./css/cssLayout.css"/>-->
+        <h:outputStylesheet name="./css/style.css"/>
+        <title>CDC</title>
+    </h:head>
+
+    <h:body>
+ 
+
+        <ui:insert name="top">
+            
+            <b:navBar brand="DatosConservación" brandHref="#" fixed="top" inverse="true" > 
+                <p:graphicImage value="images/logomenu.jpg" library="yourapp"  />
+                
+                <b:navbarLinks>
+
+                    <!-- <p:commandLink value="Inicio" action="home?faces-redirect=true"/> -->   
+                    <b:navLink value="Home" href="faces/home.xhtml"></b:navLink>>
+                    <b:dropMenu value="Fuentes">
+                        <b:navCommandLink value="Formulario de resumen de fuente" href="faces/fuentes.xhtml"></b:navCommandLink>
+                    </b:dropMenu>
+                    <b:dropMenu value="Elementos">
+                        <b:navCommandLink value="Formulario de rastreo del elemento" href="faces/formularioRastreoElemento.xhtml"></b:navCommandLink>
+                        <b:navCommandLink value="Jerarquización del elemento nacional" href="faces/jerarquizacionElemento.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="Resumen de la caracterización de plantas nacional" href="faces/resumenCaracterizacionPlantas.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="Resumen rastreo elemento" href="faces/resumenRastreoElemento.xhtml"></b:navCommandLink> 
+                      
+                    </b:dropMenu>
+                    <b:dropMenu value="Localizaciones de elementos">
+                    <b:navCommandLink value="Formulario de LES" href="faces/formularioDeLES.xhtml"></b:navCommandLink>    
+
+
+                    </b:dropMenu>
+                    <b:dropMenu value="Sitios">
+                     <b:navCommandLink value="Registro basico del sitio" href="faces/floraRegistroBasicoDelSitio.xhtml"></b:navCommandLink>      
+                      
+                    </b:dropMenu>
+                    <b:dropMenu value="Areas Manejadas ">
+                       <b:navCommandLink value="Formulario de areas de manejo" href="faces/formularioDeAreasDeManejo.xhtml"></b:navCommandLink>                        
+                         <b:navCommandLink value="Resumen areas manejadas" href="faces/areasManejadas.xhtml"></b:navCommandLink>
+                       
+                       <b:navCommandLink value="archivo" href="faces/archivo.xhtml"></b:navCommandLink> 
+                    </b:dropMenu>
+                    <b:dropMenu value="Lotes">
+
+                    </b:dropMenu>
+
+                    <b:navLink value="Contactenos" href="#contact"></b:navLink>
+
+
+                    <b:dropMenu value="Usuario">
+                        <b:navCommandLink value="Login" href="faces/login.xhtml"></b:navCommandLink> 
+                    </b:dropMenu>
+
+
+                </b:navbarLinks>
+            </b:navBar>
+
+
+        </ui:insert>             
+        <ui:insert name="content"></ui:insert>              
+        <ui:insert name="bottom"></ui:insert>
+
+    </h:body>
+
+</html>

@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+            <ui:define name="content">
+                <p:layout fullPage="true">
+                <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="center">
+
+                    <h:form prependId="false" enctype="multipart/form-data">            
+                        <p:panel id="areasManejadas" header="Resumen Areas manejadas" style="width: 1100px;">               
+                            <p:growl/>
+                            <p:tabView>
+                                <p:tab title="Pág. 1">
+                            <h3>Identificadores:</h3>             
+                            <p:panelGrid columns="2">
+                                <h:outputText value="CODIGOAM:"/>                                                   
+                                <p:inputText value="" size="100"/>           
+                                <h:outputText value="NOMBREAM:"/>
+                                <p:inputText value="" size="100"/>                  
+                                <h:outputText value="SINAM:"/>
+                                <p:inputText value="" size="100"/>    
+
+                            </p:panelGrid>
+                            <p:panelGrid columns="4">
+                                <h:outputText value=" AMMAYOR: "/>                                                  
+                                <p:inputText  value="" size="20"/>
+                                <h:outputText value="CODDUEÑO:"/>                                                   
+                                <p:inputText  value="" size="20"/>
+                                <p:panelGrid columns="2">
+                                    <h:outputText value=" CODSITIO: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="NOMSITIO:"/>                                                   
+                                    <p:inputText  value="" size="20"/>
+                                </p:panelGrid>
+                                
+                            </p:panelGrid>        
+                            <h3>Localizadores</h3>
+                            <p:panelGrid columns="6">
+                                    <h:outputText value=" NACION: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="SUBNACION:"/>                                                   
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="SUBDIVISION:"/>                                                   
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value=" NOMMAPA: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="CODMAPA:"/>                                                   
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="NUMMARG:"/>                                                   
+                                    <p:inputText  value="" size="20"/>                                                      
+                                </p:panelGrid> 
+                                <p:panelGrid columns="4">
+                                    <h:outputText value=" LAT: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="LONG:"/>                                                   
+                                    <p:inputText  value="" size="20"/>                  
+                                </p:panelGrid>      
+                                <p:panelGrid columns="8">
+                                    <h:outputText value=" S: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="N:"/>                                                   
+                                    <p:inputText  value="" size="20"/>                      
+                                    <h:outputText value=" E: "/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="O:"/>                                                   
+                                    <p:inputText  value="" size="20"/>                             
+                                </p:panelGrid>
+                            <h3>Descriptores</h3>
+                            <p:panelGrid columns="2">
+                                    <h:outputText value="DESCRIPCION:"/>                                                  
+                                    <p:inputText  value="" size="100"/>                                 
+                                </p:panelGrid>      
+                                <p:panelGrid columns="4">
+                                    <h:outputText value="AREATOT:"/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="AREA.SUBNAC:"/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="MULTISUBNAC:"/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="LIMITES:"/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="CONTINUA:"/>                                                  
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="INVO.TNC:"/>                                                  
+                                    <p:inputText  value="" size="20"/>                
+                                </p:panelGrid>   
+                                <p:panelGrid columns="2">
+                                    <h:outputText value="COMENTARIO:"/>                                                  
+                                    <p:inputTextarea  value="" style="width:700px; "/>
+                                </p:panelGrid> 
+                            <h3>Status</h3>
+                            <p:panelGrid columns="4">
+                                    <h:outputText value="FECHAESTA:"/>  
+                                    <p:calendar 
+                                        timeZone="GMT-3" 
+                                        navigator="true"                                
+                                        pattern="dd/MM/yyyy"                            
+                                        locale="pt_BR"/>
+
+                                    <h:outputText value="PROTASIGN:"/>
+                                    <p:inputText  value="" size="20"/>                   
+                                </p:panelGrid>
+                            <h3>Manejo</h3>
+                            <p:panelGrid columns="2">
+                                    <h:outputText value="ADMINISTRADOR:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="INST.ADMIN:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="DIRADMIN1:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="DIRADMIN2:"/>              
+                                    <p:inputText  value="" size="40"/>                    
+                                </p:panelGrid>  
+                                <p:panelGrid columns="4">
+                                    <h:outputText value="CIUDAD.ADMIN:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="SUBNAC.ADMIN:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="TELEFADMINIST:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="CODPOSTAL.ADMIN:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                </p:panelGrid> 
+
+                                <p:panelGrid columns="2">
+                                    <h:outputText value="TELEFADMINIST:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="ACCESOPUB:"/>              
+                                    <p:inputText  value="" size="20"/>
+                                    <h:outputText value="INSTCOOP:"/>              
+                                    <p:inputText  value="" size="100"/>
+                                    <h:outputText value="COMENTARIO:"/>                                                  
+                                    <p:inputTextarea  value="" style="width:700px; "/>
+                                </p:panelGrid>
+                            </p:tab>
+                            
+                                <p:tab title="Pág. 2">
+                                    <h3>Elementos</h3>
+                                    <p:dataTable id="tablaElementos"
+                                             value="" var="evento" style="width: 610px;" 
+                                             emptyMessage="Ningun elemento encontrado"
+                                             rows="5" 
+                                             paginator="true" 
+                                             paginatorPosition="bottom" 
+                                             paginatorAlwaysVisible="false"
+                                             editable="true">
+                                    <p:column headerText="CODIGOE">
+                                        <h:outputText value="NXA0101"/>                       
+                                    </p:column>
+                                    <p:column headerText="NOMBRES">
+                                        <h:outputText value="PHAROMACHRUS MOCINNO"/>
+                                    </p:column>
+                                    <p:column headerText="STATUS">
+                                        <h:outputText value="3"/>
+                                    </p:column>   
+                                    <p:column headerText="CODFUENTES">
+                                        <h:outputText value=""/>
+                                    </p:column >
+                                    <p:column headerText="OPTIONS">                            
+                                        <p:rowEditor />
+                                    </p:column>
+                                </p:dataTable> 
+                                    <h3>Campos opcionales</h3>
+                                    <p:dataTable id="tablaCamposOpcionales"
+                                             value="" var="evento" style="width: 610px;" 
+                                             emptyMessage="Ningun elemento encontrado"
+                                             rows="3" 
+                                             paginator="true" 
+                                             paginatorPosition="bottom" 
+                                             paginatorAlwaysVisible="false"
+                                             editable="true">
+                                    <p:column headerText="AM.OPC">
+                                        <h:outputText value="1"/>                       
+                                    </p:column>
+                                    <p:column headerText="CAMPOS">
+                                        <h:outputText value="campos"/>
+                                    </p:column>
+                                    <p:column headerText="OPTIONS">                            
+                                        <p:rowEditor />
+                                    </p:column>
+                                </p:dataTable>
+                                    <h3>Mantenimiento de registro</h3>
+                                    <p:panelGrid columns="4">
+                                    <h:outputText value="RESPATOS:"/>              
+                                    <p:inputText  value="" size="40"/>
+                                    <h:outputText value="ACTUALIZAR:"/>              
+                                    <p:calendar 
+                                        timeZone="GMT-3" 
+                                        navigator="true"                                
+                                        pattern="dd/MM/yyyy"                            
+                                        locale="pt_BR"/>
+                                </p:panelGrid>
+                                     <p:commandButton value="Guardar" />
+                               
+                                </p:tab>
+
+                                </p:tabView>
+                        </p:panel>  
+                    </h:form>
+                         </p:layoutUnit>
+                      </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+
+    
+        <h:head>
+            
+                <title>Resumen Rastreo Elemento</title>
+            
+        </h:head>
+
+
+        <h:body style="background-color: #CCCCCC">
+           <b:navBar brand="DatosConservación" brandHref="#" fixed="top" inverse="true">
+                <b:navbarLinks>
+
+                    <!-- <p:commandLink value="Inicio" action="home?faces-redirect=true"/> -->   
+                    <b:navLink value="Home" href="faces/home.xhtml"></b:navLink>>
+                    <b:dropMenu value="Fuentes">
+                        <b:navCommandLink value="Formulario de resumen de fuente" href="faces/fuentes.xhtml"></b:navCommandLink>
+                    </b:dropMenu>
+                    <b:dropMenu value="Elementos">
+                        <b:navCommandLink value="Formulario de rastreo del elemento" href="faces/formularioRastreoElemento.xhtml"></b:navCommandLink>
+                        <b:navCommandLink value="Jerarquización del elemento nacional" href="faces/jerarquizacionElemento.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="Resumen de la caracterización de plantas nacional" href="faces/resumenCaracterizacionPlantas.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="Resumen rastreo elemento" href="faces/resumenRastreoElemento.xhtml"></b:navCommandLink> 
+                      
+                    </b:dropMenu>
+                    <b:dropMenu value="Localizaciones de elementos">
+                    <b:navCommandLink value="Formulario de LES" href="faces/formularioDeLES.xhtml"></b:navCommandLink>    
+
+
+                    </b:dropMenu>
+                    <b:dropMenu value="Sitios">
+                     <b:navCommandLink value="Registro basico del sitio" href="faces/floraRegistroBasicoDelSitio.xhtml"></b:navCommandLink>      
+                      
+                    </b:dropMenu>
+                    <b:dropMenu value="Areas Manejadas ">
+                        <b:navCommandLink value="Areas manejadas" href="faces/areasManejadas.xhtml"></b:navCommandLink>
+                        <b:navCommandLink value="Formulario de areas de manejo" href="faces/formularioDeAreasDeManejo.xhtml"></b:navCommandLink>                        
+                        <b:navCommandLink value="archivo" href="faces/archivo.xhtml"></b:navCommandLink> 
+                    </b:dropMenu>
+                    <b:dropMenu value="Lotes">
+
+                    </b:dropMenu>
+
+                    <b:navLink value="Contactenos" href="#contact"></b:navLink>
+
+
+                    <b:dropMenu value="Usuario">
+                        <b:navCommandLink value="Login" href="faces/login.xhtml"></b:navCommandLink> 
+                    </b:dropMenu>
+
+
+                </b:navbarLinks>
+            </b:navBar>
+            <p:layout fullPage="true">
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+                <p:layoutUnit position="center">
+          <h:form id="resumen" enctype="multipart/form-data">
+            <p:growl id="msgs" showDetail="true"/>                                         
+
+            <p:dataTable id="ident" var="re" value="#{elementoBean.lre}" editable="true" style="margin-bottom:20px"
+                         emptyMessage="Nenhum evento cadastrado"
+                         rows="6" 
+                         paginator="true" 
+                         paginatorPosition="bottom" 
+                         paginatorAlwaysVisible="false"
+                         selectionMode="single"
+                         selection="#{elementoBean.reSeleccionado}"
+                         rowKey="#{re.id}"
+                         >
+
+
+                <f:facet name="header">
+                    Resumen Rastreo Elementos Identificadores
+                </f:facet>
+                <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":resumen:msgs ident " />
+                <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":resumen:msgs  " /> 
+                <p:ajax event="rowSelect" update="" />
+                <p:column headerText="ID">                   
+                    <h:outputText value="#{re.id}"/>                   
+                </p:column>             
+                <p:column headerText="CODIGOE">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{re.CODIGOE}" /></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{re.CODIGOE}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>                                                                                                   
+                <p:column headerText="TROPICOS">                  
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{re.TROPICOS}" /></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{re.TROPICOS}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>                  
+                <p:column headerText="NACION">                    
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{re.NACION}" /></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{re.NACION}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>                   
+                <p:column headerText="SUBNACION">                  
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{re.SUBNACION}" /></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{re.SUBNACION}" style="width:100%"/></f:facet>
+                    </p:cellEditor>
+                </p:column>                  
+                <p:column style="width:32px" >                          
+                    <p:rowEditor />
+                </p:column>
+                <p:column>                                         
+                    <p:commandButton   icon="ui-icon-plus" title="Adicionar Imagen" oncomplete="PF('dialogFotos').show()" >
+                        <f:setPropertyActionListener target="#{elementoBean.reSeleccionado}" value="#{re}"/>
+                    </p:commandButton>
+                     <p:commandButton icon="ui-icon-search" title="Ver Imagenes"  oncomplete=" PF('dlgGaleria').show()" update="">                      
+                    </p:commandButton>
+                </p:column>
+
+            </p:dataTable> 
+            <!--****Dialogo Subir Fotos****-->
+            <p:dialog id="dialogFotos" position="top" widgetVar="dialogFotos" modal="true" minWidth="600" minHeight="500">                
+              <p:fileUpload fileUploadListener="#{elementoBean.enviarImagen}"                              
+                              update="imagemTmp"
+                              cancelLabel="Cancelar"
+                              fileLimit="100000"
+                              fileLimitMessage="Imagen muy grande"                               
+                              label="Selecionar"
+                              invalidFileMessage="Tipo de imagen inválido"
+                              invalidSizeMessage="Imagen muy grande"
+                              uploadLabel="Enviar"
+                              allowTypes="/(\.|\/)(jpe?g|png)$/">
+
+                </p:fileUpload>
+                <p:outputPanel id="dadosFoto">
+                    <h:panelGrid>                        
+                        <p:graphicImage cache="false" id="imagemTmp" value="#{elementoBean.imagen}" height="300" style="margin: 0 auto;"/>
+                        <h:outputText value="Descripcion:"/>
+                        <p:inputText value="#{elementoBean.foto.descripcion}" size="49"/>
+                        <h:outputText value="Orden:"/>
+                        <p:inputMask mask="9" value="#{elementoBean.foto.orden}" size="5"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+                 <p:commandButton value="Adicionar" action="#{elementoBean.guardarFotos()}" update="dadosFoto "/>          
+            </p:dialog> 
+
+            <!--****Mostrar imagenes****-->
+            <p:dialog id="dlgGaleria" widgetVar="dlgGaleria" modal="true" position="top" minWidth="440" minHeight="500">                
+
+                <p:galleria value="#{imagesView.images}" var="image" panelWidth="1000" panelHeight="313" showCaption="true">
+                    <p:graphicImage value="images/#{image}" alt="Image Description for #{image}" title="#{image}"/>                                                        
+                </p:galleria>              
+            </p:dialog> 
+
+        </h:form>      
+                     </p:layoutUnit>
+             </p:layout>
+   </h:body>
+</html>

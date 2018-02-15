@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+
+            <ui:define name="content">
+
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form prependId="false" enctype="multipart/form-data"> 
+                        <p:panel id="form" header="Formulario de Resumen de Fuente" style="width: 900px; height:1000px; "> 
+    
+                      
+
+                            <h:panelGrid id="grid1" columns="7" cellpadding="5">
+                                <h:outputLabel for="codfuente" value="CODFUENTE:" style="font-weight:bold"    />
+                                <p:spacer width="50" />
+                                <p:selectOneMenu id="codfuente" value="" style="width:125px">
+                                    <f:selectItem itemLabel="A" itemValue="A" />
+                                    <f:selectItem itemLabel="R" itemValue="R" />                               
+                                </p:selectOneMenu>
+
+                                <p:selectOneMenu id="num" value="" style="width:125px">
+                                    <f:selectItem itemLabel="17" itemValue="" />
+
+                                </p:selectOneMenu>
+                                <p:inputText id="codText1" value=""/>
+                                <p:inputText id="codText2" value=""/>
+
+                                <p:selectOneMenu id="nacion" value="GT" style="width:125px">
+                                    <f:selectItem itemLabel="GT" itemValue="GT" />
+                                    <f:selectItem itemLabel="US" itemValue="US" />
+                                </p:selectOneMenu>
+
+
+
+                            </h:panelGrid>
+
+                            <h:panelGrid id="grid2" columns="4" cellpadding="5">
+                                <h:outputLabel for="cita" value="CITA:" style="font-weight:bold"  />
+                                <p:spacer  height="10" width="95" />
+                                <p:inputText id="citaText1" value=""/>
+                                <p:inputText id="citaText2" value=""/>
+
+
+
+                            </h:panelGrid>
+
+                            <h:panelGrid id="grid3" columns="3" cellpadding="5">
+
+                                <p:spacer  height="10" width="127" />
+                                <p:inputText id="citaText3" value=""/>
+                                <p:inputText id="citaText4" value=""/>
+
+
+
+                            </h:panelGrid>
+                            <h:panelGrid id="grid4" columns="3" cellpadding="5">
+                                <h:outputLabel for="archivado" value="ARCHIVADO:" style="font-weight:bold" />
+                                <p:spacer  height="50" width="50" />
+                                <p:selectOneMenu id="area" value="ZOOLOGIA" style="width:125px">
+                                    <f:selectItem itemLabel="ZOOLOGIA" itemValue="ZOOLOGIA" />
+                                    <f:selectItem itemLabel="BOTANICA" itemValue="BOTANICA" />
+                                    <f:selectItem itemLabel="QUIMICA" itemValue="BOTANICA" />
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+
+                            <h:panelGrid id="grid5" columns="5" cellpadding="5">
+                                <h:outputLabel for="codgeo" value="CODGEO:" style="font-weight:bold" />
+                                <p:spacer  height="10" width="70" />
+                                <p:selectOneMenu id="codgeo" value="GT" style="width:125px">
+                                    <f:selectItem itemLabel="GT" itemValue="GT" />
+                                    <f:selectItem itemLabel="US" itemValue="US" />
+                                </p:selectOneMenu>
+                                <p:selectOneMenu id="coddep" value="Santa Rosa" style="width:125px">
+                                    <f:selectItem itemLabel="Santa Rosa" itemValue="Santa Rosa" />
+
+                                </p:selectOneMenu>
+                                <p:selectOneMenu id="municipio" value="Taxisco" style="width:125px">
+                                    <f:selectItem itemLabel="Taxisco" itemValue="Taxisco" />
+
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+                            <h:panelGrid id="grid6" columns="9" cellpadding="5">
+                                <h:outputLabel for="posS" value="S:" style="font-weight:bold" />
+                                <p:spacer  height="50" width="115" />
+                                <p:inputText id="posS" value=""/>
+                                <h:outputLabel for="posN" value="N:" style="font-weight:bold" />
+                                <p:inputText id="posN" value=""/>
+                                <h:outputLabel for="posE" value="E:" style="font-weight:bold" />
+                                <p:inputText id="posE" value=""/>
+                                <h:outputLabel for="posO" value="O:" style="font-weight:bold" />
+                                <p:inputText id="posO" value=""/>
+                            </h:panelGrid>
+
+                            <h:panelGrid id="grid7" columns="3" cellpadding="5">
+                                <h:outputLabel for="resumen" value="RESUMEN:" style="font-weight:bold" />
+                                <p:spacer  height="50" width="60" />
+                                <p:inputTextarea  value="" style="width:500px; height: 200px " />
+
+                            </h:panelGrid>
+                            <h:panelGrid id="grid8" columns="6" cellpadding="5">
+                                <h:outputLabel for="tema" value="TEMA:" style="font-weight:bold" />
+                                <p:spacer  height="50" width="80" />
+
+                                <p:selectCheckboxMenu id="grouped1" value="#{checkboxView.selectedComunat}" label="COMUNAT"       
+                                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">  
+                                    <f:selectItems value="#{checkboxView.comunat}" var="comunat" itemLabel="#{comunat}" itemValue="#{comunat}"  />                                                                       
+                                </p:selectCheckboxMenu>
+                                <p:selectCheckboxMenu id="grouped2" value="#{checkboxView.selectedFlora}" label="FLORA"       
+                                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">  
+                                    <f:selectItems value="#{checkboxView.flora}" var="flora" itemLabel="#{flora}" itemValue="#{flora}"  />                                                                       
+                                </p:selectCheckboxMenu>
+
+                                <p:selectCheckboxMenu id="grouped3" value="#{checkboxView.selectedFauna}" label="FAUNA"       
+                                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">  
+                                    <f:selectItems value="#{checkboxView.fauna}" var="flora" itemLabel="#{fauna}" itemValue="#{fauna}"  />                                                                
+                                </p:selectCheckboxMenu>
+
+                                <p:selectCheckboxMenu id="grouped4" value="#{checkboxView.selectedHidrol}" label="HIDROL"       
+                                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">  
+                                    <f:selectItems value="#{checkboxView.hidrol}" var="hidrol" itemLabel="#{hidrol}" itemValue="#{hidrol}"  />                                                                
+                                </p:selectCheckboxMenu>
+                            </h:panelGrid>
+
+                            <h:panelGrid id="grid9" columns="2" cellpadding="5">
+                                <h:outputLabel for="publicacion" value="PUBLICACIÓN CDC :" style="font-weight:bold" />
+
+                                <p:inputText id="publicacionText" value=""/>
+
+                                <h:outputLabel for="clave" value="CLAVE :" style="font-weight:bold" />                              
+                                <p:inputText id="claveText" value=""/>
+                                <h:outputLabel for="comentario" value="COMENTARIO :" style="font-weight:bold" /> 
+                                <p:inputTextarea  value="" style="width:500px; height: 200px " />
+                                <h:outputLabel for="notadigest" value="NOTADIGEST :" style="font-weight:bold" />
+                                <p:inputText id="clave" value=""/>
+
+
+                            </h:panelGrid>
+                            <h:panelGrid id="grid10" columns="4" cellpadding="5">                                
+                                <h:outputLabel for="fecha" value="FECHA :" style="font-weight:bold" />
+
+                                <p:spacer  height="50" width="70" />
+                                <p:calendar 
+
+                                    timeZone="GMT-3" 
+                                    navigator="true"                                
+                                    pattern="dd/MM/yyyy"                            
+                                    locale="pt_BR" />
+                                <p:inputText id="iniciales" value=""/>
+                            </h:panelGrid>
+
+
+                            <p:commandButton value="Guardar" />                                    
+
+                            <p:commandButton value="CANCELAR"  />  
+                                            
+
+                        
+</p:panel> 
+                            </h:form>
+                    </p:layoutUnit>
+
+                </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

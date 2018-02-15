@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+            <ui:define name="content">
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form prependId="false" enctype="multipart/form-data">            
+                            <p:panel id="formularioDeLES" header="FORMULARIO LOCALIZACIÓN DEL ELEMENTO" style="width:1200px ">                 
+                                <p:growl/>
+                                <p:tabView> 
+                                    <p:tab title="Pág. 1">
+                                        <h3>Identificadores</h3>
+                                        <h:panelGrid columns="8">
+                                            <h:outputText value="CODIGOLE:"/>                                                   
+                                            <p:spacer width="50" />
+                                            <p:selectOneMenu id="codigole1" value="" style="width:125px">
+                                                <f:selectItem itemLabel="AANKD06070" itemValue="AANKD06070" />
+                                                <f:selectItem itemLabel="AANKD06080" itemValue="AANKD06080" />                                                
+                                            </p:selectOneMenu>     
+                                            <p:inputText id="codigoleTex1" value=""/>
+                                            <p:selectOneMenu id="codigole2" value="" style="width:125px">
+                                                <f:selectItem itemLabel="GT" itemValue="GT" />
+                                                <f:selectItem itemLabel="US" itemValue="US" />                                                
+                                            </p:selectOneMenu> 
+                                            <h:outputText value="IDENT:"/>
+                                            <p:selectOneMenu id="ident" value="" style="width:125px">
+                                                <f:selectItem itemLabel="S" itemValue="S" />
+                                                <f:selectItem itemLabel="N" itemValue="N" />
+                                                <f:selectItem itemLabel="?" itemValue="?" />
+                                            </p:selectOneMenu>
+                                        </h:panelGrid > 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="NOMBRES:"/> 
+
+                                            <p:inputText value="" size="20"/>           
+                                            <h:outputText value="NOMCOMUNS:"/>
+                                            <p:inputText value="" size="20"/>
+                                        </p:panelGrid> 
+
+                                        <h:panelGrid  columns="7">
+                                            <h:outputText value="RANGOS DEL ELEMENTO:"/>  
+                                            <h:outputText value="RANGOG:"/> 
+                                            <p:inputText value="" size="20"/> 
+                                            <h:outputText value="RANGON:"/> 
+                                            <p:inputText value="" size="20"/> 
+                                            <h:outputText value="RANGOs:"/> 
+                                            <p:inputText value="" size="20"/> 
+                                        </h:panelGrid>
+
+                                        <h3>Localizadores</h3>
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="SUBNACION:"/> 
+                                            <p:selectOneMenu id="subnacion" value="" style="width:125px">
+                                                <f:selectItem itemLabel="PT" itemValue="PT" />
+                                                <f:selectItem itemLabel="ALTV" itemValue="ALTV" />                                               
+                                            </p:selectOneMenu>
+
+                                            <h:outputText value="SUBDIVISION:"/>
+                                            <p:selectOneMenu id="subdivision" value="" style="width:125px">
+                                                <f:selectItem itemLabel="AB" itemValue="AB" />
+                                                <f:selectItem itemLabel="CD" itemValue="CD" />
+
+                                            </p:selectOneMenu>
+                                        </p:panelGrid> 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="CODSITIO:"/> 
+                                            <p:selectOneMenu id="codsitio" value="" style="width:125px">
+                                                <f:selectItem itemLabel="GTPTSSABCD10" itemValue="GTPTSSABCD10" />
+                                                <f:selectItem itemLabel="GTPTSSABCD11" itemValue="GTPTSSABCD11" />                                               
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NOMSITIO:"/>    
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="SITIOEVA:"/> 
+                                            <p:inputTextarea  value="" style="width:500px; height: 200px " />
+
+                                        </p:panelGrid> 
+                                        <p:panelGrid  columns="10" >
+                                            <h:outputText value="PRECISIÓN:"/>
+                                            <p:selectOneMenu id="precision" value="" style="width:125px">
+                                                <f:selectItem itemLabel="S" itemValue="S" />
+                                                <f:selectItem itemLabel="N" itemValue="N" />
+                                                <f:selectItem itemLabel="?" itemValue="?" />
+                                            </p:selectOneMenu>
+                                            <h:outputText value="CODMAPA:"/> 
+                                            <p:inputText value="" size="10"/>
+                                            <h:outputText value="NUMMARG:"/> 
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="NUMPUNTO:"/> 
+                                            <p:inputText value="" size="10"/>
+                                            <h:outputText value="DIEZDIEZ:"/> 
+                                            <p:inputText value="" size="10"/>
+
+                                        </p:panelGrid>
+
+                                        <h3>Status</h3>
+                                    </p:tab>
+                                    <p:tab title="Pág. 2">
+                                        <h3>Descripción</h3>
+                                        <h3>Protección</h3>
+                                        <h3>Propietario</h3>
+                                        <h3>Campos opcionales</h3>
+                                    </p:tab>
+                                    <p:tab title="Pág. 3">
+                                        <h3>Comentarios generales</h3>
+                                        <h3>Documentación y mantenimiento</h3>
+                                    </p:tab>
+
+
+
+                                </p:tabView> 
+                            </p:panel>                               
+                        </h:form>
+
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

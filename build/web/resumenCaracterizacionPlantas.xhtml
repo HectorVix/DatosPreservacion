@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+            <ui:define name="content">
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+
+                        <h:form prependId="false" enctype="multipart/form-data">
+
+                            <p:panel id="registro" header="RESUMEN DE LA CARACTERIZACION DE PLANTAS" style="width:1000px; ">
+                                <p:growl/>
+                                <p:tabView>
+                                    <p:tab title="Pág. 1">
+                                        <h3>IDENTIFICADORES:</h3>                  
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="CODIGOE:"/>                                                   
+                                            <p:inputText value="" size="10"/>
+                                            <h:outputText value="NACION:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+
+                                        </p:panelGrid > 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="NOMBREN:"/>                                                   
+                                            <p:inputText value="" size="50"/>
+                                            <h:outputText value="NOMCOMUNN:"/>                                                   
+                                            <p:inputText value="" size="50"/>
+
+                                        </p:panelGrid > 
+                                        <h3>TAXONOMIA:</h3>    
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMSUBESPN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 600px;"/>
+                                            <h:outputText value="TAXASIMILN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 600px;"/>   
+                                            <h:outputText value="COMIDENTN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 600px;"/>
+                                            <h:outputText value="COMTAXN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 600px;"/>
+
+                                            <p:commandButton value="Siguente" type="button" onclick=" PF('dlgST').show()" />
+
+
+                                        </p:panelGrid > 
+                                        <h3>STATUS:</h3>   
+                                        <p:panelGrid columns="6">
+                                            <h:outputText value="RANGOG:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="RANGON:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="AEPEU:"/>                                                   
+                                            <p:inputText value="" size="20"/>                                                                                       
+                                        </p:panelGrid > 
+                                        <p:panelGrid columns="8">
+                                            <h:outputText value="CITES:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="UICN:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="RASTREOLEN:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="PROTNACION:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                        </p:panelGrid >   
+
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="MALEZAN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+                                            <h:outputText value="CLASIFINSTN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+                                            <h:outputText value="COMSTATN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 200px;"/>
+
+                                        </p:panelGrid > 
+
+                                        <h3>INVENTARIO:</h3>   
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="NEC.INVENTN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px;"/>
+                                            <h:outputText value="RES.PROPN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>
+
+                                        </p:panelGrid >
+                                    </p:tab>
+                                    <p:tab title="Pág. 2">
+                                        <h3>DISTRIBUCIÓN:</h3>
+                                        <p:panelGrid columns="1">
+                                            <p:dataTable id="tablaDistrubicion"
+                                                         value="" var="evento" style="width: 610px;" 
+                                                         emptyMessage="Ningun elemento encontrado"
+                                                         rows="3" 
+                                                         paginator="true" 
+                                                         paginatorPosition="bottom" 
+                                                         paginatorAlwaysVisible="false"
+                                                         editable="true">
+                                                <p:column headerText="CODSUBNAC">
+                                                    <h:outputText value="1"/>                       
+                                                </p:column>
+                                                <p:column headerText="NOMSUBNAC">
+                                                    <h:outputText value="Nombre"/>
+                                                </p:column>                        
+                                                <p:column headerText="STATSUBNAC">                            
+                                                    <h:outputText value="Nombre"/>
+                                                </p:column>
+                                                <p:column headerText="OPTIONS">                            
+                                                    <p:rowEditor />
+                                                </p:column>
+                                            </p:dataTable>                            
+                                        </p:panelGrid> 
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="ELEVMINN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+                                            <h:outputText value="ELEVMAXN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+                                            <h:outputText value="DISYUNTN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+                                            <h:outputText value="PERIFERICAN:"/>                                                   
+                                            <p:inputText value="" size="40"/>                                     
+                                        </p:panelGrid >
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMDISTN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>   
+                                        </p:panelGrid >  
+
+                                        <h3>HABITAT:</h3>
+                                        <p:panelGrid columns="6">
+                                            <h:outputText value="MARINON:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="ESTUARINON:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="FLUVIALN:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="LACUSTREN:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="PALUSTREN:"/>                                                   
+                                            <p:inputText value="" size="20"/>
+                                            <h:outputText value="TERRESTREN:"/>                                                   
+                                            <p:inputText value="" size="20"/>                             
+                                        </p:panelGrid > 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMHABN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>   
+                                        </p:panelGrid > 
+                                        <h3>ECOLOGIA:</h3>    
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMECOLN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>   
+                                        </p:panelGrid >
+                                    </p:tab>
+                                    <p:tab title="Pág. 3">
+                                        <h3>FENOLOGIA:</h3>
+                                        <p:panelGrid columns="12">
+                                            <h:outputText value="NENEA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NMARA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NMAYA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NJULA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NSETA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NNOVA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+
+                                            <h:outputText value="NENEB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NMARB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NMAYB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NJULB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NSETB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NNOVB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+
+                                            <h:outputText value="NFEBA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NABRA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NJUNA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NAGOA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NOCTA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NDICA:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+
+                                            <h:outputText value="NFEBB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NABRB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NJUNB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NAGOB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NOCTB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                            <h:outputText value="NDICB:"/>                                                   
+                                            <p:inputText value="" size="5"/>
+                                        </p:panelGrid >
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMECOLN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>   
+                                        </p:panelGrid >
+                                        <h3>REPRODUCCION:</h3>  
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMREPN:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 350px"/>   
+                                        </p:panelGrid >
+
+                                    </p:tab>
+                                    <p:tab title="Pág. 4">
+                                        <h3>Manejo:</h3>  
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="COMMANEJON:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/>   
+                                        </p:panelGrid >
+                                        <h3>Campos Opcionales:</h3>  
+                                        <p:panelGrid columns="1">
+                                            <p:dataTable id="camposOpcinales"
+                                                         value="" var="evento" style="width: 610px;" 
+                                                         emptyMessage="Ningun elemento encontrado"
+                                                         rows="3" 
+                                                         paginator="true" 
+                                                         paginatorPosition="bottom" 
+                                                         paginatorAlwaysVisible="false"
+                                                         editable="true">
+                                                <p:column headerText="Num">
+                                                    <h:outputText value="1"/>                       
+                                                </p:column>
+                                                <p:column headerText="RCPN.OPC">
+                                                    <h:outputText value="Nombre"/>
+                                                </p:column>                        
+                                                <p:column headerText="OPTIONS">                            
+                                                    <p:rowEditor />
+                                                </p:column>
+                                            </p:dataTable>                            
+                                        </p:panelGrid> 
+                                        <h3>Mantenimiento del rigistro:</h3> 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="CODFUENTE:"/>                                                   
+                                            <p:inputText value="" size="10"/>   
+                                            <h:outputText value="CITA:"/>                                                   
+                                            <p:inputTextarea value="" style="width: 300px"/> 
+                                            <h:outputText value="TRASPAREN:"/>                                                   
+                                            <p:inputText value="" size="10"/>  
+
+                                        </p:panelGrid >
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="REFG:"/>                                                   
+                                            <p:inputText value="" size="10"/>                             
+                                            <h:outputText value="REFN:"/>                                                   
+                                            <p:inputText value="" size="10"/>                            
+                                        </p:panelGrid >
+
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="EDICION:"/>                                                   
+                                            <p:inputText value="" size="10"/>                             
+                                            <h:outputText value="AUTOR ED.N:"/>                                                   
+                                            <p:inputText value="" size="10"/>
+                                            <h:outputText value="ACTUALIZAN:"/>                                                   
+                                            <p:calendar 
+                                                timeZone="GMT-3" 
+                                                navigator="true"                                
+                                                pattern="dd/MM/yyyy"                            
+                                                locale="pt_BR"/>
+                                        </p:panelGrid >
+                                        <p:commandButton value="Guardar"   />
+                                    </p:tab>
+
+                                </p:tabView>
+
+                            </p:panel>              
+                        </h:form> 
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

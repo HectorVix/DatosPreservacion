@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+            <ui:define name="content">
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form prependId="false" enctype="multipart/form-data">
+
+
+
+                            <p:panel id="formularioRastreoElemento" header="Formulario de rastreo del elemento" style="width: 1200px; height: 1100px; ">               
+                                <h:form>
+
+                                    <p:tabView>
+                                        <p:tab title="Pág. 1">
+                                            <h3>Identificadores</h3>              
+                                            <h:panelGrid id="grid1" columns="9" cellpadding="5">
+                                                <h:outputLabel for="codigoe" value="CODIGOE:" style="font-weight:bold" />
+                                                <p:spacer width="50" />
+                                                <p:selectOneMenu id="codigoe1" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="A" itemValue="A" />
+                                                    <f:selectItem itemLabel="R" itemValue="R" />                               
+                                                </p:selectOneMenu>
+
+                                                <p:selectOneMenu id="codigoe2" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABCD" itemValue="" />
+
+                                                </p:selectOneMenu>
+                                                <p:selectOneMenu id="codigoe3" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="01" itemValue="01" />
+                                                    <f:selectItem itemLabel="02" itemValue="02" />
+
+                                                </p:selectOneMenu>
+                                                <p:selectOneMenu id="codigoe4" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="01" itemValue="01" />
+                                                    <f:selectItem itemLabel="02" itemValue="02" />
+
+                                                </p:selectOneMenu>
+                                                <p:selectOneMenu id="codigoe5" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="0" itemValue="0" />
+                                                    <f:selectItem itemLabel="1" itemValue="1" />
+
+                                                </p:selectOneMenu>
+                                                <h:outputLabel for="tropicos" value="TROPICOS:" style="font-weight:bold" />
+                                                <p:selectOneMenu id="tropicos" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABC" itemValue="ABC" />
+                                                    <f:selectItem itemLabel="DFG" itemValue="DFG" />
+                                                </p:selectOneMenu>
+
+                                            </h:panelGrid>
+
+
+                                            <h:panelGrid id="grid2" columns="5" cellpadding="5">
+                                                <h:outputLabel for="nacion" value="NACIÓN:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="60" />
+                                                <p:selectOneMenu id="nacion" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="GT" itemValue="GT" />
+                                                    <f:selectItem itemLabel="US" itemValue="US" />
+
+                                                </p:selectOneMenu>
+                                                <h:outputLabel for="subnacion" value="SUBNACION:" style="font-weight:bold" />
+
+                                                <p:selectOneMenu id="subnacion" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="PT" itemValue="PT" />
+                                                    <f:selectItem itemLabel="ALTV" itemValue="ALTV" />
+
+                                                </p:selectOneMenu>
+
+                                            </h:panelGrid>
+                                            <h3>Taxonomia (Global )</h3> 
+                                            <h:panelGrid id="grid3" columns="5" cellpadding="5">
+                                                <h:outputLabel for="clasetax" value="CLASETAX:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="50" />
+                                                <p:selectOneMenu id="clasetax" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABCD" itemValue="ABCD" />
+                                                    <f:selectItem itemLabel="DFEG" itemValue="DFEG" />
+
+                                                </p:selectOneMenu>
+
+                                                <h:outputLabel for="orden" value="ORDEN:" style="font-weight:bold" />
+
+                                                <p:selectOneMenu id="orden" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABCDE" itemValue="ABCDE" />
+                                                    <f:selectItem itemLabel="EFGH" itemValue="EFGH" />
+
+                                                </p:selectOneMenu>
+
+                                                <h:outputLabel for="familia" value="FAMILIA:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="50" />
+                                                <p:selectOneMenu id="familia" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABCD" itemValue="ABCD" />
+                                                    <f:selectItem itemLabel="DFEG" itemValue="DFEG" />
+
+                                                </p:selectOneMenu>
+
+                                                <h:outputLabel for="genero" value="GENERO:" style="font-weight:bold" />
+
+                                                <p:selectOneMenu id="genero" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="ABCDE" itemValue="ABCDE" />
+                                                    <f:selectItem itemLabel="EFGH" itemValue="EFGH" />
+
+                                                </p:selectOneMenu>
+
+                                            </h:panelGrid>
+                                            <h:panelGrid id="grid4" columns="3" cellpadding="5">
+                                                <h:outputLabel for="nombreg" value="NOMBREG:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="50" />
+                                                <p:inputText id="nombregText" value=""/>
+                                                <h:outputLabel for="autor" value="AUTOR:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="50" />
+                                                <p:inputText id="autorText" value=""/>
+
+                                            </h:panelGrid>
+                                            <h:panelGrid id="grid5" columns="9" cellpadding="5">
+                                                <h:outputLabel for="fuentenom" value="FUENTENOM:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="35" />
+                                                <p:selectOneMenu id="fuentenom" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="0" itemValue="0" />
+                                                    <f:selectItem itemLabel="1" itemValue="1" />
+                                                </p:selectOneMenu>
+
+
+                                                <h:outputLabel for="refnomber" value="REFNOMBER:" style="font-weight:bold" />                                                                                               
+                                                <p:selectOneMenu id="refnomber" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="AB" itemValue="AB" />
+                                                    <f:selectItem itemLabel="BC" itemValue="BC" />                                                 
+                                                </p:selectOneMenu>
+
+                                                <h:outputLabel for="distrax" value="DISTRAX:" style="font-weight:bold" />                                                                                                
+                                                <p:selectOneMenu id="distrax" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="A" itemValue="A" />
+                                                    <f:selectItem itemLabel="B" itemValue="B" />                                                 
+                                                </p:selectOneMenu>
+
+                                                <h:outputLabel for="dudatax" value="DUDATAX:" style="font-weight:bold" />                                                                                                
+                                                <p:selectOneMenu id="dudatax" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="A" itemValue="A" />
+                                                    <f:selectItem itemLabel="B" itemValue="B" />                                                 
+                                                </p:selectOneMenu>
+                                            </h:panelGrid>
+
+                                            <h:panelGrid id="grid6" columns="3" cellpadding="5">
+                                                <h:outputLabel for="nomcomung" value="NOMCOMUNG:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="25" />
+                                                <p:inputText id="nomcomungText" value=""/>
+                                                <h:outputLabel for="comtaxg" value="COMTAXG:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="25" />
+                                                <p:inputTextarea  value="" style="width:500px; height: 200px " />
+
+                                            </h:panelGrid>
+
+                                            <h3>Taxonomia (Nacional)</h3> 
+                                            <h:panelGrid id="grid7" columns="5" cellpadding="5">
+                                                <h:outputLabel for="nombren" value="NOMBREN:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="50" />
+                                                <p:inputText id="nombren" value=""/>
+                                                <h:outputLabel for="numsinn" value="NUMSINN:" style="font-weight:bold" />
+                                                <p:selectOneMenu id="numsinn" value="" style="width:125px">
+                                                    <f:selectItem itemLabel="0" itemValue="0" />
+                                                    <f:selectItem itemLabel="1" itemValue="1" />
+                                                </p:selectOneMenu>
+
+
+                                            </h:panelGrid>
+                                            <h:panelGrid id="grid8" columns="3" cellpadding="5">
+                                                <h:outputLabel for="nomcomunn" value="NOMCOMUNN:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="25" />
+                                                <p:inputText id="nomcomunn" value=""/>
+                                                <h:outputLabel for="comtaxn" value="COMTAXN:" style="font-weight:bold" />
+                                                <p:spacer  height="10" width="25" />
+                                                <p:inputTextarea  value="" style="width:500px; height: 200px " />
+
+                                            </h:panelGrid>
+
+
+                                        </p:tab>
+                                        <p:tab title="Pág. 2">
+
+                                            <h3>Status (Global)</h3> 
+                                            <p:panelGrid columns="8">
+                                                <h:outputText value="RANGOG:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.RANGOG}" size="20"/>           
+                                                <h:outputText value="FECHA.REVRG:*"/>                       
+                                                <p:calendar value="#{elementoBean.re.FECHA_REVRG}"
+                                                            timeZone="GMT-3" 
+                                                            navigator="true"                                
+                                                            pattern="dd/MM/yyyy"                            
+                                                            locale="pt_BR"/>                                                              
+                                                <h:outputText value="FORMULARG:"/>
+                                                <p:inputText value="#{elementoBean.re.FORMULARG}" size="20"/>   
+                                                <h:outputText value="RESPRG:"/>
+                                                <p:inputText value="#{elementoBean.re.RESPRG}" size="20"/>
+                                                <h:outputText value="AEPEU:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.AEPEU}" size="20"/>           
+                                                <h:outputText value="FECHA.AEPEU:*"/>                       
+                                                <p:calendar value="#{elementoBean.re.FECHA_AEPEU}"
+                                                            timeZone="GMT-3" 
+                                                            navigator="true"                                
+                                                            pattern="dd/MM/yyyy"                            
+                                                            locale="pt_BR"/>                                                                                                                                                                                                                      
+                                                <h:outputText value="CITES:"/>
+                                                <p:inputText value="#{elementoBean.re.CITES}" size="20"/>   
+                                                <h:outputText value="UICN:"/>
+                                                <p:inputText value="#{elementoBean.re.UICN}" size="20"/>
+                                                <h:outputText value="PLANSCONS"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.PLANSCONS}" size="20"/>           
+                                                <h:outputText value="RESPLAN:"/>                       
+                                                <p:inputText value="#{elementoBean.re.RESPLAN}" size="20"/>                               
+                                                <h:outputText value="RESUMENMAN:"/>
+                                                <p:inputText value="#{elementoBean.re.RESUMENMAN}" size="20"/>   
+                                                <h:outputText value="RESRESUMEN:"/>
+                                                <p:inputText value="#{elementoBean.re.RESRESUMEN}" size="20"/>
+                                            </p:panelGrid>
+                                            <h3>Status (Nacional)</h3>      
+                                            <p:panelGrid columns="6">
+                                                <h:outputText value="EXSITU:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.EXSITU}" size="30"/>           
+                                                <h:outputText value="INST.EXSITU:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.INST_EXSITU}" size="30"/> 
+                                                <h:outputText value="ENDEMISMO:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.ENDEMISMO}" size="30"/> 
+
+                                            </p:panelGrid> 
+
+                                            <p:panelGrid columns="8">
+                                                <h:outputText value="RANGON:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.RANGON}" size="20"/>           
+                                                <h:outputText value="FECHA.REVRN:*"/>                       
+                                                <p:calendar value="#{elementoBean.re.FECHA_REVRN}" 
+                                                            timeZone="GMT-3" 
+                                                            navigator="true"                                
+                                                            pattern="dd/MM/yyyy"                            
+                                                            locale="pt_BR"/>
+
+                                                <h:outputText value="FORMULARN:"/>
+                                                <p:inputText value="#{elementoBean.re.FORMULARN}" size="20"/>   
+                                                <h:outputText value="RASTREOLEN:"/>
+                                                <p:inputText value="#{elementoBean.re.RASTREOLEN}" size="20"/>
+                                                <h:outputText value="LESTIMN:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.LESTIMN}" size="20"/>           
+                                                <h:outputText value="LEPROTN:"/>                       
+                                                <p:inputText value="#{elementoBean.re.LEPROTN}" size="20"/>  
+
+                                                <h:outputText value="ABUNDN:"/>
+                                                <p:inputText value="#{elementoBean.re.ABUNDN}" size="20"/>   
+                                                <h:outputText value="PROTNACION:"/>
+                                                <p:inputText value="#{elementoBean.re.PROTNACION}" size="20"/>
+
+                                            </p:panelGrid>
+                                            <p:panelGrid columns="4">
+                                                <h:outputText value="REFNOMBRE:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.REFNOMBRES}" size="30"/>           
+                                                <h:outputText value="TRANSPARENCIAN:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.TRANSPARENCIAN}" size="30"/>                                       
+                                            </p:panelGrid>
+                                            <h3>Status (Subnacional)</h3> 
+                                            <p:panelGrid columns="8">
+                                                <h:outputText value="RANGOS:"/>                                                   
+                                                <p:inputText value="#{elementoBean.re.RANGOS}" size="20"/>           
+                                                <h:outputText value="FECHA.REVRS:"/>                       
+                                                <p:calendar value="#{elementoBean.re.FECHA_REVRS}" 
+                                                            timeZone="GMT-3" 
+                                                            navigator="true"                                
+                                                            pattern="dd/MM/yyyy"                            
+                                                            locale="pt_BR"/>
+
+                                                <h:outputText value="FORMULARS:"/>
+                                                <p:inputText value="#{elementoBean.re.FORMULARS}" size="20"/>   
+                                                <h:outputText value="RASTREOLES:"/>
+                                                <p:inputText value="#{elementoBean.re.RASTREOLES}" size="20"/>
+
+
+                                            </p:panelGrid>
+                                        </p:tab>
+
+                                    </p:tabView>
+
+
+
+
+                                    <p:commandButton value="Siguiente"  />
+                                    <p:commandButton value="Cancelar"  />
+
+                                </h:form>   
+                            </p:panel> 
+                        </h:form>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Home</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <b:navBar brand="DatosConservación" brandHref="#" fixed="top" inverse="true">
+                <b:navbarLinks>
+
+                    <!-- <p:commandLink value="Inicio" action="home?faces-redirect=true"/> -->   
+                    <b:dropMenu value="HOME">
+
+                    </b:dropMenu>
+                    <b:dropMenu value="FUENTES">
+
+                    </b:dropMenu>
+                    <b:dropMenu value="UNIDADES DE MANEJO">
+                        <b:navCommandLink value="AREAS MANEJADAS" href="faces/areasManejadas.xhtml"></b:navCommandLink>
+                        <b:navCommandLink value="FORMULARIO DE AREA DE MANEJO" href="faces/formularioDeAreasDeManejo.xhtml"></b:navCommandLink>
+                        <b:navCommandLink value="FORMULARIO DE RASTREO DEL ELEMENTO" href="faces/formularioRastreoElemento.xhtml"></b:navCommandLink>
+
+                    </b:dropMenu>
+                    <b:dropMenu value="FLORA">
+                        <b:navCommandLink value="REGISTRO BASICO DEL SITIO" href="faces/floraRegistroBasicoDelSitio.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="RESUMEN DE LA CARACTERIZACION DE PLANTAS NACIONAL" href="faces/resumenCaracterizacionPlantas.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="JERARQUIZACION DEL ELEMENTO NACIONAL" href="faces/jerarquizacionElemento.xhtml"></b:navCommandLink>    
+                        <b:navCommandLink value="FORMULARIO DE LES" href="faces/formularioDeLES.xhtml"></b:navCommandLink>    
+
+
+                    </b:dropMenu>
+                    <b:dropMenu value="FAUNA">
+
+                    </b:dropMenu>
+                    <b:dropMenu value="RESUMENES">
+                        <b:navCommandLink value="Rastreo Elemento" href="faces/resumenRastreoElemento.xhtml"></b:navCommandLink> 
+                    <b:navCommandLink value="archivo" href="faces/archivo.xhtml"></b:navCommandLink> 
+                    
+                    </b:dropMenu>
+                    <b:navLink value="Contactenos" href="#contact"></b:navLink>
+
+
+                    <b:dropMenu value="USUARIO">
+                        <b:navCommandLink value="Login" href="faces/login.xhtml"></b:navCommandLink> 
+                    </b:dropMenu>
+
+
+                </b:navbarLinks>
+            </b:navBar>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+
+
+                    <p:galleria value="#{imagesView.images}" var="image" panelWidth="1000" panelHeight="400" showCaption="true">
+                        <p:graphicImage value="images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+
+                    </p:galleria>
+
+                </p:layoutUnit>
+
+
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

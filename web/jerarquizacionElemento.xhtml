@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/plantillaMenu.xhtml">
+
+            <ui:define name="content">
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
+                        <p:spacer width="50"/>
+
+
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                        USAC
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="Resources">
+                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                            </p:submenu>
+
+                        </p:menu>
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form prependId="false" enctype="multipart/form-data">
+                            <p:panel id="registro" header="JERARQUIZACOIN DEL ELEMENTO NACIONAL" style="width:1000px; ">
+                                <p:growl/>
+                                <p:tabView>
+
+                                    <p:tab title="Pág. 1">
+                                        <p:panelGrid columns="4">
+
+
+
+                                        </p:panelGrid> 
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="CODIGOE:"/> 
+                                            <p:selectOneMenu id="jcodigoe" value="" style="width:125px">
+                                                <f:selectItem itemLabel="AAKD06070" itemValue="AAKD06070" />
+                                                <f:selectItem itemLabel="AAKD06080" itemValue="AAKD06080" />                           
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NOMBREN:"/>                                                   
+                                            <p:inputText value="" size="40"/>
+
+                                            <h:outputText value="NACION:"/>
+                                            <p:selectOneMenu id="nacion" value="GT" style="width:125px">
+                                                <f:selectItem itemLabel="GT" itemValue="GT" />
+                                                <f:selectItem itemLabel="US" itemValue="US" />
+                                            </p:selectOneMenu>
+
+
+                                            <h:outputText value="NLOCTIP:"/>
+                                            <p:inputText value="" size="40"/>
+                                            
+                                            
+                                            <h:outputText value="NLESTIM:"/>
+                                            <p:selectOneMenu id="nlestim" value="" style="width:125px">
+                                                <f:selectItem itemLabel="A" itemValue="A" />
+                                                <f:selectItem itemLabel="B" itemValue="B" />                           
+                                            </p:selectOneMenu>
+                                            
+                                            <h:outputText value="NLESTIMCOM:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            <h:outputText value="NABUND:"/>   
+                                            <p:selectOneMenu id="nabund" value="" style="width:125px">
+                                                <f:selectItem itemLabel="D" itemValue="D" />
+                                                <f:selectItem itemLabel="F" itemValue="F" />                           
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NABUNDCOM:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            
+                                            <h:outputText value="NDIST:"/>        
+                                            <p:selectOneMenu id="ndist" value="" style="width:125px">
+                                                <f:selectItem itemLabel="C" itemValue="C" />
+                                                <f:selectItem itemLabel="D" itemValue="D" />                           
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NDISTCOM:"/>                                            
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                             
+                                            
+                                            <h:outputText value="NLEPROT:"/>  
+                                            <p:selectOneMenu id="nleprot" value="" style="width:125px">
+                                                <f:selectItem itemLabel="I" itemValue="I" />
+                                                <f:selectItem itemLabel="J" itemValue="J" />                           
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NLEPROTCOM:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            
+                                            <h:outputText value="NAMENAZ:"/>        
+                                            <p:selectOneMenu id="namenaz" value="" style="width:125px">
+                                                <f:selectItem itemLabel="B" itemValue="B" />
+                                                <f:selectItem itemLabel="C" itemValue="C" />                           
+                                            </p:selectOneMenu>
+                                            <h:outputText value="NAMENAZCOM:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+
+                                        </p:panelGrid>
+                                    </p:tab>
+                                    <p:tab title="Pág. 2">
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="NOTROCONSI:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+
+                                        </p:panelGrid>
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="RANGON:"/>        
+                                            <p:selectOneMenu id="rangon" value="" style="width:125px">
+                                                <f:selectItem itemLabel="N1" itemValue="N1" />
+                                                <f:selectItem itemLabel="N2" itemValue="N2" /> 
+                                                <f:selectItem itemLabel="N3" itemValue="N3" /> 
+                                            </p:selectOneMenu>
+                                            <h:outputText value="FECHA.REVRN:"/>              
+                                            <p:calendar 
+                                                timeZone="GMT-3" 
+                                                navigator="true"                                
+                                                pattern="dd/MM/yyyy"                            
+                                                locale="pt_BR"/>
+
+                                        </p:panelGrid>
+                                        <p:panelGrid columns="2">
+                                            <h:outputText value="RAZON.RN:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            <h:outputText value="NEC.PROTECN:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            <h:outputText value="NEC.INVENTN:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                            <h:outputText value="NEC.MANEJON:"/>                                                   
+                                            <p:inputTextarea value="" style="width:700px; "/>
+                                        </p:panelGrid>
+                                        <p:panelGrid columns="4">
+                                            <h:outputText value="EDICION:"/>        
+                                            <p:calendar 
+                                                timeZone="GMT-3" 
+                                                navigator="true"                                
+                                                pattern="dd/MM/yyyy"                            
+                                                locale="pt_BR"/>
+                                            <h:outputText value="ACTUALIZAR:"/>              
+                                            <p:calendar 
+                                                timeZone="GMT-3" 
+                                                navigator="true"                                
+                                                pattern="dd/MM/yyyy"                            
+                                                locale="pt_BR"/>
+
+                                        </p:panelGrid>
+
+                                        <p:commandButton value="Guardar"  />
+                                    </p:tab>
+                                </p:tabView>
+                            </p:panel>              
+                        </h:form>  
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
