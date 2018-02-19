@@ -16,44 +16,67 @@
 
         <h:body>
             <p:graphicImage value="images/logo.jpg" library="yourapp"  />
-            <h:form>
-
+           
+            <h:form id ="form">
+                 <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
                 <p:panel >
-                    <p:messages>  
-
-                    </p:messages>
                     
-                     
-                    <h:panelGrid id="grid" columns="4" cellpadding="5">
-                        <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
-                        <p:inputText id="name" value="#{validationView.text}" required="true" label="Name"/>
-                        <p:message for="name" />
-                        <h:outputText value="#{validationView.text}" />
-                        
+
+
+                    <h:panelGrid id="grid" columns="2" cellpadding="5">
+                        <h:outputLabel for="name" value="Nombre:" style="font-weight:bold"/>
+                        <p:inputText id="name" value="#{userLoginView.username}" required="true" label="Nombre"/>
+
+
                         <h:outputLabel for="pwd1" value="Constraseña: " style="font-weight:bold" />
-                        <p:password id="pwd1" value="#{validationView.password}" required="true" label="Contraseña "  />
-                        <p:message for="pwd1" />
-                        <h:outputText value="#{validationView.password}" />
+                        <p:password id="pwd1" value="#{userLoginView.password}" required="true" label="Contraseña "  />
+
+                        
+ 
+                        <p:dataList value="#{obtener.usuario}" var="usuario" type="ordered">
+
+                            <f:facet name="header">
+                                Basic
+                            </f:facet>
+                            #{usuario.nombre}, #{usuario.contrasena}  
+                        </p:dataList>
+                        
+                        
                     </h:panelGrid>
 
-                    <p:commandButton value="INICIAR SESIÓN" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"
-                                     action="faces/home.xhtml"/>                                    
-                                     
-                    
-                  
-                  
-                 
-                       
+                    <f:facet name="footer">
+                        <p:commandButton value="Login" update="growl" action="#{userLoginView.login}"
+                          oncomplete="handleLoginRequest(xhr, status, args"               />
+                    </f:facet>                                   
+
+
+
+
+
+
                 </p:panel>
                 <h:panelGrid id="grid2" columns="2" cellpadding="5">  
                     <p:link outcome="faces/recuperarConstrasena.xhtml" value="¿Olvidaste tu constraseña?" style="font-weight:bold"/>
                     <p:link outcome="faces/registrarse.xhtml" value="¿No tienes cuenta todavia?" style="font-weight:bold"  />
-                    
-                    
-                     </h:panelGrid>
+
+
+                </h:panelGrid>
             </h:form>
+            <script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('home.xhtml').fadeOut();
+        }
+    }
+</script>
         </h:body>
 
     </f:view>
 </html>
+
+
