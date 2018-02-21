@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.bcd.view;
+import Controladores.UsuarioJpaController;
+import com.bcd.managedbeans.ResquestScoped;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -16,8 +18,9 @@ import org.primefaces.context.RequestContext;
  * @author Héctor Vix
  */
 @ManagedBean (name="login")
-@SessionScoped
+@ResquestScoped
 public class UserLoginView  implements Serializable{
+    UsuarioJpaController control_usuario = new UsuarioJpaController();
     private String username;
      
     private String password;
@@ -54,4 +57,14 @@ public class UserLoginView  implements Serializable{
        // PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
     }  
     
+    
+    public String loginControl() {
+        if (control_usuario.loginControl(username, password)) {
+            return "home.xhtml?faces-redirect=true";
+        }
+        RequestContext.getCurrentInstance().update("growl");
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error de acceso"));
+        return "";
+    }
 }

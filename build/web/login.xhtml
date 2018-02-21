@@ -26,11 +26,11 @@
 
                     <h:panelGrid id="grid" columns="2" cellpadding="5">
                         <h:outputLabel for="name" value="Nombre:" style="font-weight:bold"/>
-                        <p:inputText id="name" value="#{userLoginView.username}" required="true" label="Nombre"/>
+                        <p:inputText id="name" value="#{login.username}" required="true" label="Nombre"/>
 
 
                         <h:outputLabel for="pwd1" value="Constraseña: " style="font-weight:bold" />
-                        <p:password id="pwd1" value="#{userLoginView.password}" required="true" label="Contraseña "  />
+                        <p:password id="pwd1" value="#{login.password}" required="true" label="Contraseña "  />
 
                         
  
@@ -46,8 +46,8 @@
                     </h:panelGrid>
 
                     <f:facet name="footer">
-                        <p:commandButton value="Login" update="growl" action="#{userLoginView.login}"
-                          oncomplete="handleLoginRequest(xhr, status, args"               />
+                        <p:commandButton value="Login" update="growl"   action="#{login.loginControl()}"
+                                     />
                     </f:facet>                                   
 
 
@@ -63,17 +63,7 @@
 
                 </h:panelGrid>
             </h:form>
-            <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('home.xhtml').fadeOut();
-        }
-    }
-</script>
+           
         </h:body>
 
     </f:view>

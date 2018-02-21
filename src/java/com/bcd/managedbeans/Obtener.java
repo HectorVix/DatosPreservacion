@@ -35,4 +35,5 @@ public class Obtener  {
     public List<Usuario>getUsuario(){
         return control_usuario.findUsuarioEntities();
     }
+    
 }
