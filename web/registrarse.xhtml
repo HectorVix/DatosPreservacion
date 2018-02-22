@@ -33,55 +33,50 @@
 
 
                         <h:outputLabel for="nombre" value="Nombre:" style="font-weight:bold"/>
-                        <p:inputText id="nombre" value="#{validationView.text}" required="true" label="Nombre"/>
+                        <p:inputText id="nombre" value="#{registrar.nombre}" required="true" label="Nombre"/>
                         <p:message for="nombre" />
-                        <h:outputText value="#{validationView.text}" />
+                        <h:outputText value="#{registrar.nombre}" />
 
                         <h:outputLabel for="apellido" value="Apellido:" style="font-weight:bold"/>
-                        <p:inputText id="apellido" value="#{validationView.text}" required="true" label="Apellido"/>
+                        <p:inputText id="apellido" value="#{registrar.apellido}" required="true" label="Apellido"/>
                         <p:message for="apellido" />
-                        <h:outputText value="#{validationView.text}" />
+                        <h:outputText value="#{registrar.apellido}" />
 
                         <h:outputLabel for="usuario" value="Nombre de Usuario:" style="font-weight:bold"/>
-                        <p:inputText id="usuario" value="#{validationView.text}" required="true" label="usuario"/>
+                        <p:inputText id="usuario" value="#{registrar.usuario}" required="true" label="usuario"/>
                         <p:message for="usuario" />
-                        <h:outputText value="#{validationView.text}" />
+                        <h:outputText value="#{registrar.usuario}" />
 
                         <h:outputLabel for="sexo" value="Sexo:" style="font-weight:bold"/>
-                        <h:selectOneMenu id="sexo" value=" " style="width:125px">
-                            <f:selectItems value="#{checkboxView.sexo}" var="sex" itemLabel="#{sex}" itemValue="#{sex}"  />
-                        </h:selectOneMenu>
+                        <p:selectOneMenu id="sexo" value="#{registrar.sex}" style="width:125px">
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                            <f:selectItem itemLabel="Femenino" itemValue="Femenino" />
+                           
+                        </p:selectOneMenu>
                         <p:message for="sexo" />
                         <h:outputText value="  " />
 
-                        <h:outputLabel for="date" value="Fecha" style="font-weight:bold"/>
-                        <p:inputText id="date" value="#{validationView.date}" label="Date">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </p:inputText>
-                        <p:message for="date" />
-                        <h:outputText value="#{validationView.date}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
+                        
 
 
                         <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
-                        <p:inputText id="email" value="#{validationView.email}" validatorMessage="El formato de correo no es valido.">
+                        <p:inputText id="email" value="#{registrar.email}" validatorMessage="El formato de correo no es valido.">
                             <f:validateRegex pattern="^[a-zA-Z]+$" />
                         </p:inputText>
                         <p:message for="email" />
-                        <h:outputText value="#{validationView.email}" />
+                        <h:outputText value="#{registrar.email}" />
 
                         <h:outputLabel for="pwd1" value="Contraseña:" />                                                                                             
-                        <p:password id="pwd1" value="#{validationView.password}" match="pwd2" label="Password 1" required="true" />
+                        <p:password id="pwd1" value="#{registrar.contrasena}" match="pwd2" label="Password 1" required="true" />
 
                         <p:message for="pwd1" />
-                        <h:outputText value="#{validationView.password}" />
+                        <h:outputText value="#{registrar.contrasena}" />
 
                         <h:outputLabel for="pwd2" value="Repita contraseña: *" />
-                        <p:password id="pwd2" value="#{validationView.password}" label="Password 2" required="true" />
+                        <p:password id="pwd2" value="#{registrar.contrasena}" label="Password 2" required="true" />
 
                         <p:message for="pwd2" />
-                        <h:outputText value="#{validationView.password}" />
+                        <h:outputText value="#{registrar.contrasena}" />
 
                     </h:panelGrid>
 
