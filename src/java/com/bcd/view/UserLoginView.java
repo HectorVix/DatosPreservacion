@@ -18,7 +18,7 @@ import org.primefaces.context.RequestContext;
  * @author Héctor Vix
  */
 @ManagedBean (name="login")
-@ResquestScoped
+//@ResquestScoped
 public class UserLoginView  implements Serializable{
     UsuarioJpaController control_usuario = new UsuarioJpaController();
     private String username;
@@ -51,4 +51,6 @@ public class UserLoginView  implements Serializable{
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error de acceso"));
         return "";
     }
+    
+   
 }

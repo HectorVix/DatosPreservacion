@@ -6,7 +6,7 @@
 package com.bcd.galeria.beans;
 
 import com.bcd.elemento.beans.Rastreo_Elemento;
-import com.bcd.elemento.dao.Rastreo_ElementoDAO;
+import com.bcd.dao.Rastreo_ElementoDAO;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;

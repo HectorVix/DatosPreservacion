@@ -14,6 +14,8 @@ import java.util.Date;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
+import com.bcd.dao.ControlDao;
+import java.sql.SQLException;
 
 /**
  *
@@ -30,16 +32,24 @@ public class RegistrarView implements Serializable {
     private String apellido;
     private String usuario;
     private String sex;
-
-    private Integer sexo;
+    private String sexo;
     private Date fechanacimiento;
     private String email;
     private String contrasena;
     private Rol rolId;
+    
+    public String getSexo() {
+        return sexo;
+    }
 
-    //validar usuario repetido
-    // validar email repetido
-    // validar nombre igual
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+    
+
+    //validar usuario repetido?
+    // validar email repetido?
+    // validar nombre igual?
     public UsuarioJpaController getControl_usuario() {
         return control_usuario;
     }
@@ -88,14 +98,6 @@ public class RegistrarView implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Integer sexo) {
-        this.sexo = sexo;
-    }
-
     public Date getFechanacimiento() {
         return fechanacimiento;
     }
@@ -134,10 +136,12 @@ public class RegistrarView implements Serializable {
     public RegistrarView() {
     }
 
-    public String registrar() {
-
+    public String addUsuario() throws SQLException {
+        ControlDao cdao= new ControlDao();
+        Integer sec_usuario=cdao.sec_Usuario();    
         Usuario usuarioE = new Usuario();
-        usuarioE.setUsuarioId(usuarioid);
+        
+        usuarioE.setUsuarioId(sec_usuario);
         usuarioE.setNombre(nombre);
         usuarioE.setApellido(apellido);
         usuarioE.setUsuario(usuario);
@@ -145,9 +149,14 @@ public class RegistrarView implements Serializable {
         usuarioE.setFechanacimiento(fechanacimiento);
         usuarioE.setEmail(email);
         usuarioE.setContrasena(contrasena);
-        usuarioE.setRolId(rolId);
-        // rolId.setRolId(2);
+        usuarioE.setRolId(rolId);        
         control_usuario.create(usuarioE);
+         System.out.println("Secuencia:"+sec_usuario);
+        return " usuario guardado:"+usuario;
+    }
+
+    public String getUsuariodN() {
+
         return "";
     }
 }

@@ -7,8 +7,8 @@ package com.bcd.elemento.managedbeans;
 
 import com.bcd.elemento.beans.Foto;
 import com.bcd.elemento.beans.Rastreo_Elemento;
-import com.bcd.elemento.dao.FotoDAO;
-import com.bcd.elemento.dao.Rastreo_ElementoDAO;
+import com.bcd.dao.FotoDAO;
+import com.bcd.dao.Rastreo_ElementoDAO;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;

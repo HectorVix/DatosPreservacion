@@ -18,11 +18,10 @@
             <p:graphicImage value="images/logo.jpg" library="yourapp"  />
             <h:form>
 
+                <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
                 <p:panel header="Registrarse">
-                    <p:messages>  
 
-                    </p:messages>
                     <h:panelGrid>
                         <h:outputText
                             value="Rellene el formulario  para registrarse en el CDC.
@@ -51,12 +50,12 @@
                         <p:selectOneMenu id="sexo" value="#{registrar.sex}" style="width:125px">
                             <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
                             <f:selectItem itemLabel="Femenino" itemValue="Femenino" />
-                           
+
                         </p:selectOneMenu>
                         <p:message for="sexo" />
                         <h:outputText value="  " />
 
-                        
+
 
 
                         <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
@@ -80,12 +79,13 @@
 
                     </h:panelGrid>
 
-                    <p:commandButton value="Registrar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"
-                                     action="faces/login.xhtml"         />                                    
+                    <f:facet name="footer">
+                        <p:commandButton value="Save" update="growl"   action="#{registrar.addUsuario()}"
+                                         />
+                    </f:facet>                                      
 
 
-                     <p:commandButton value="Login"      style="margin-right:10px"
-                                     action="faces/login.xhtml"         />                  
+
 
 
 
