@@ -18,7 +18,7 @@
             <p:graphicImage value="images/logo.jpg" library="yourapp"  />
             <h:form>
 
-                <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                <!-- <p:growl id="growl" sticky="true" showDetail="true" life="3000" /> -->
 
                 <p:panel header="Registrarse">
 
@@ -46,16 +46,29 @@
                         <p:message for="usuario" />
                         <h:outputText value="#{registrar.usuario}" />
 
-                        <h:outputLabel for="sexo" value="Sexo:" style="font-weight:bold"/>
-                        <p:selectOneMenu id="sexo" value="#{registrar.sex}" style="width:125px">
-                            <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
-                            <f:selectItem itemLabel="Femenino" itemValue="Femenino" />
+                        <h:outputLabel for="opsexo" value="Sexo:" style="font-weight:bold"/>                       
+                        <p:selectOneMenu id="opsex" value="#{registrar.sexo}" style="width:125px">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="Hombre" itemValue="Hombre" />
+                            <f:selectItem itemLabel="Mujer" itemValue="Mujer" />
 
                         </p:selectOneMenu>
-                        <p:message for="sexo" />
+
+                        <p:message for="opsex" />
                         <h:outputText value="  " />
 
+                        <h:outputLabel for="fecha" value="Fecha de nacimiento :" style="font-weight:bold" />
 
+                        <p:calendar 
+                            value="#{registrar.fechanacimiento}" 
+                            id="fecha"
+                            timeZone="GMT-3" 
+                            navigator="true"                                
+                            pattern="dd/MM/yyyy"                            
+                            locale="pt_BR" />
+
+                        <p:message for="fecha" />
+                        <h:outputText value="  " />
 
 
                         <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
@@ -71,7 +84,7 @@
                         <p:message for="pwd1" />
                         <h:outputText value="#{registrar.contrasena}" />
 
-                        <h:outputLabel for="pwd2" value="Repita contraseña: *" />
+                        <h:outputLabel for="pwd2" value="Repita contraseña: " />
                         <p:password id="pwd2" value="#{registrar.contrasena}" label="Password 2" required="true" />
 
                         <p:message for="pwd2" />
@@ -80,7 +93,7 @@
                     </h:panelGrid>
 
                     <f:facet name="footer">
-                        <p:commandButton value="Save" update="growl"   action="#{registrar.addUsuario()}"
+                        <p:commandButton value="Save"    action="#{registrar.addUsuario()}"
                                          />
                     </f:facet>                                      
 

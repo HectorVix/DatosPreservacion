@@ -16,7 +16,12 @@ import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
 import com.bcd.dao.ControlDao;
 import java.sql.SQLException;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.model.SelectItem;
+import java.util.Map;
 
+import java.util.HashMap;
+import java.util.List;
 /**
  *
  * @author Héctor Vix
@@ -31,12 +36,12 @@ public class RegistrarView implements Serializable {
     private String nombre;
     private String apellido;
     private String usuario;
-    private String sex;
+ 
     private String sexo;
     private Date fechanacimiento;
     private String email;
     private String contrasena;
-    private Rol rolId;
+    private Rol rol;
     
     public String getSexo() {
         return sexo;
@@ -90,13 +95,7 @@ public class RegistrarView implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+  
 
     public Date getFechanacimiento() {
         return fechanacimiento;
@@ -122,13 +121,7 @@ public class RegistrarView implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public Rol getRolId() {
-        return rolId;
-    }
-
-    public void setRolId(Rol rolId) {
-        this.rolId = rolId;
-    }
+  
 
     /**
      * Creates a new instance of Registrar
@@ -137,10 +130,12 @@ public class RegistrarView implements Serializable {
     }
 
     public String addUsuario() throws SQLException {
-        ControlDao cdao= new ControlDao();
-        Integer sec_usuario=cdao.sec_Usuario();    
-        Usuario usuarioE = new Usuario();
         
+        ControlDao cdao= new ControlDao();
+        Rol rol = new Rol();
+        Integer sec_usuario=cdao.sec_Usuario();    
+        Usuario usuarioE = new Usuario(); 
+        rol.setRolId(4);
         usuarioE.setUsuarioId(sec_usuario);
         usuarioE.setNombre(nombre);
         usuarioE.setApellido(apellido);
@@ -149,9 +144,12 @@ public class RegistrarView implements Serializable {
         usuarioE.setFechanacimiento(fechanacimiento);
         usuarioE.setEmail(email);
         usuarioE.setContrasena(contrasena);
-        usuarioE.setRolId(rolId);        
+        usuarioE.setRolId(rol);        
         control_usuario.create(usuarioE);
-         System.out.println("Secuencia:"+sec_usuario);
+       
+      //   System.out.println("SEXO:"+sexo);
+        
+     //    System.out.println("Secuencia:"+sec_usuario);
         return " usuario guardado:"+usuario;
     }
 
